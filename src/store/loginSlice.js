@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   loginStatus: false,
-  user: {},
+  user: null,
 };
 
+// reducer to update login status in the store.
 const loginSlice = createSlice({
   name: "login",
   initialState,
@@ -13,8 +14,9 @@ const loginSlice = createSlice({
       state.loginStatus = true;
       state.user = action.payload;
     },
-    logout: (state, action) => {
+    logout: (state) => {
       state.loginStatus = false;
+      state.user = null;
     },
   },
 });
