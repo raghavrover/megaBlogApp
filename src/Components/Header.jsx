@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Logo from "./Logo";
 import Button from "./Button";
+import LogoutBtn from "./LogoutBtn";
 
 function Header() {
   const authStatus = useSelector((state) => state.login.loginStatus);
@@ -56,11 +57,11 @@ function Header() {
                   </Button>
                 </li>
               ))}
-              <li className={authStatus ? "" : "hidden"}>
-                <Button>
-                  <Link to="/login">Logout</Link>
-                </Button>
-              </li>
+              {authStatus && (
+                <li>
+                  <LogoutBtn>Logout</LogoutBtn>
+                </li>
+              )}
             </ul>
           </div>
 

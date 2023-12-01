@@ -132,7 +132,10 @@ class Service {
 
   //Get file preview(this is a fast action so we're not using async/await)
   getFilePreview(fileId) {
-    const response = this.storage.deleteFile(envVars.appWriteBucketID, fileId);
+    const response = this.storage.getFilePreview(
+      envVars.appWriteBucketID,
+      fileId
+    );
     return response;
   }
 }
