@@ -1,9 +1,8 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import {
+  Route,
   RouterProvider,
   createBrowserRouter,
-  Route,
   createRoutesFromElements,
 } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -17,29 +16,77 @@ import AddPost from "./pages/AddPost";
 import AllPosts from "./pages/AllPosts";
 import EditPost from "./pages/EditPost";
 import Post from "./pages/Post";
-
+import ProtectedRoute from "./Components/ProtectedRoute";
 import "./index.css";
 
-//TODO: Implement Protected Routes by wrapping Components inside a authentication Component. Home, AddPost, EditPost, AllPosts, Post.
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       {/**Add an error boundary for non-specified routes */}
-      <Route path="" element={<Home />} />
-      <Route path="login" element={<Login />} />
-      <Route path="sign-up" element={<SignUp />} />
-      <Route path="add-post" element={<AddPost />} />
-      <Route path="edit-post" element={<EditPost />} />
-      <Route path="all-posts" element={<AllPosts />} />
-      <Route path="post/:id" element={<Post />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute authentication>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="login"
+        element={
+          <ProtectedRoute authentication={false}>
+            <Login />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="sign-up"
+        element={
+          <ProtectedRoute authentication={false}>
+            <SignUp />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="add-post"
+        element={
+          <ProtectedRoute authentication>
+            <AddPost />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="edit-post"
+        element={
+          <ProtectedRoute authentication>
+            <EditPost />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="all-posts"
+        element={
+          <ProtectedRoute authentication>
+            <AllPosts />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="post/:id"
+        element={
+          <ProtectedRoute authentication>
+            <Post />
+          </ProtectedRoute>
+        }
+      />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
+  // </React.StrictMode>
 );

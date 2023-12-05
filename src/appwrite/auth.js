@@ -19,17 +19,18 @@ class AuthService {
       const userAccount = await this.account.create(
         ID.unique(),
         email,
-        name,
-        password
+        password,
+        name
       );
       if (userAccount) {
         //Call Login method if the user already exists
-        this.login({ email, name });
+        return this.login({ email, password });
       } else {
         return userAccount;
       }
     } catch (error) {
       //Customize handling error if you want
+      console.log("Appwrite Service :: createAccount :: error", error);
       throw new Error(error);
     }
   }
@@ -37,10 +38,11 @@ class AuthService {
   //Login
   async login({ email, password }) {
     try {
-      const user = await this.account.createEmailSession(email, password);
-      return user;
+      const session = await this.account.createEmailSession(email, password);
+      return session;
     } catch (error) {
       //Customize handling error if you want
+      console.log("Appwrite Service :: login :: error", error);
       throw new Error(error);
     }
   }
@@ -53,9 +55,8 @@ class AuthService {
     } catch (error) {
       //Customize handling error if you want
       console.log("Appwrite Service :: getCurrentUser :: error", error);
+      throw new Error(error);
     }
-
-    return null;
   }
 
   //Logout
@@ -65,6 +66,7 @@ class AuthService {
     } catch (error) {
       //Customize handling error if you want
       console.log("Appwrite service :: logout :: error", error);
+      throw new Error(error);
     }
   }
 }

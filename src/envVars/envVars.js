@@ -4,6 +4,7 @@ const envVars = {
   appWriteDatabaseID: String(import.meta.env.VITE_DATABASE_ID),
   appWriteCollectionID: String(import.meta.env.VITE_COLLECTION_ID),
   appWriteBucketID: String(import.meta.env.VITE_BUCKET_ID),
+  tinyMceAPIKey: String(import.meta.env.VITE_TINYMCE_API_KEY),
 };
 
 export default envVars;

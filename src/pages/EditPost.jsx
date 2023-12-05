@@ -1,7 +1,11 @@
-import React from "react";
+import PostForm from "../Components/PostForm";
 
-function EditPost() {
-  return <div>EditPost</div>;
+function EditPost({ post }) {
+  return (
+    <>
+      <PostForm post={post} />
+    </>
+  );
 }
 
 export default EditPost;

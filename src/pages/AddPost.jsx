@@ -1,7 +1,11 @@
-import React from "react";
+import PostForm from "../Components/PostForm";
 
 function AddPost() {
-  return <div>AddPost</div>;
+  return (
+    <>
+      <PostForm />
+    </>
+  );
 }
 
 export default AddPost;

@@ -25,7 +25,7 @@ class Service {
         {
           title,
           content,
-          featuredImage,
+          featuredImage, // <- This is an Id of the post image in the Storage Bucket.
           status,
           userId,
         }
@@ -33,6 +33,7 @@ class Service {
       return response;
     } catch (error) {
       console.log("Appwrite service :: createPost :: error", error);
+      throw Error(error);
     }
   }
 
@@ -53,6 +54,7 @@ class Service {
       return response;
     } catch (error) {
       console.log("Appwrite service :: updatePost :: error", error);
+      throw Error(error);
     }
   }
 
@@ -67,7 +69,7 @@ class Service {
       return true; // If the post deleted successfully.
     } catch (error) {
       console.log("Appwrite service :: deletePost :: error", error);
-      return false; // If the post is not deleted.
+      throw Error(error);
     }
   }
 
@@ -82,7 +84,7 @@ class Service {
       return response;
     } catch (error) {
       console.log("Appwrite service :: getPost :: error", error);
-      return false;
+      throw Error(error);
     }
   }
 
@@ -97,7 +99,7 @@ class Service {
       return response;
     } catch (error) {
       console.log("Appwrite service :: getAllPosts :: error", error);
-      return false;
+      throw Error(error);
     }
   }
 
@@ -112,7 +114,7 @@ class Service {
       return response;
     } catch (error) {
       console.log("Appwrite service :: uploadFile :: error", error);
-      return false;
+      throw Error(error);
     }
   }
 
@@ -126,7 +128,7 @@ class Service {
       return response;
     } catch (error) {
       console.log("Appwrite service :: deleteFile :: error", error);
-      return false;
+      throw Error(error);
     }
   }
 

@@ -1,1 +1,1 @@
-// Implement Posts Reducers to know store when posts are downloaded.
+// Implement Post's Reducer to know store when posts are downloaded.

@@ -1,7 +1,7 @@
 import { forwardRef, useId } from "react";
 
 const MyInput = forwardRef(function Input(
-  { label, type, placeholder, className = "" },
+  { label, type = "text", className = "", ...props },
   ref
 ) {
   const id = useId();
@@ -9,7 +9,7 @@ const MyInput = forwardRef(function Input(
   return (
     <div className="w-full flex flex-col items-start">
       {label && (
-        <label htmlFor={id} className="text-xs text-cyan-200">
+        <label htmlFor={id} className="text-sm inline-block mb-1 pl-1">
           {label}
         </label>
       )}
@@ -17,8 +17,8 @@ const MyInput = forwardRef(function Input(
         type={type}
         id={id}
         ref={ref}
-        className={`w-full h-10 px-4 py-6 rounded-md ${className}`}
-        placeholder={placeholder}
+        className={`${className} w-full h-7 px-4 py-6 rounded-md`}
+        {...props}
       />
     </div>
   );
