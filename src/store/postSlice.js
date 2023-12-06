@@ -9,8 +9,11 @@ const postSlice = createSlice({
     storePosts: (state, action) => {
       state.postsData = action.payload;
     },
+    clearPosts: (state) => {
+      state.postsData = [];
+    },
   },
 });
 
-export const { storePosts } = postSlice.actions;
+export const { storePosts, clearPosts } = postSlice.actions;
 export default postSlice.reducer;

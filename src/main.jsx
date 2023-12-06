@@ -20,6 +20,9 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import "./index.css";
 
+// Removing `cookieFallback` value if it is locally stored, that is added by the `AppWrite` while creating by a previous login session
+localStorage.removeItem("cookieFallback");
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<NotFound />}>

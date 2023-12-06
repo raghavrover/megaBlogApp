@@ -1,12 +1,13 @@
 /**
  * 1. Delete Session from AppWrite Service with the `logout` method
- * 1.1 if the request is successful update the `Store` with the `logout` action of the loginSlice
+ * 1.1 if the request is successful update the `Store` with the `logout` action of the loginSlice and clear all posts with `clearPosts` action of postsSlice
  * 1.2 if the request failed display an error
  */
 
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout as authLogout } from "../store/authSlice";
+import { clearPosts } from "../store/postSlice";
 import authService from "../appwrite/auth";
 
 function LogoutBtn({ children, className = "" }) {
@@ -17,6 +18,7 @@ function LogoutBtn({ children, className = "" }) {
     try {
       await authService.logout();
       dispatch(authLogout());
+      dispatch(clearPosts());
       navigate("/login");
     } catch (error) {
       console.log("User Could not Logout");
