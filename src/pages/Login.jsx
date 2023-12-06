@@ -1,8 +1,11 @@
 import LoginComponent from "../Components/Login";
+import { Container } from "../Components/Index";
 
 const Login = () => (
   <>
-    <LoginComponent />
+    <Container>
+      <LoginComponent />
+    </Container>
   </>
 );
 

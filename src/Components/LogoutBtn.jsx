@@ -6,7 +6,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logout as authLogout } from "../store/loginSlice";
+import { logout as authLogout } from "../store/authSlice";
 import authService from "../appwrite/auth";
 
 function LogoutBtn({ children, className = "" }) {
@@ -19,7 +19,7 @@ function LogoutBtn({ children, className = "" }) {
       dispatch(authLogout());
       navigate("/login");
     } catch (error) {
-      console.log("User Could not Logout ");
+      console.log("User Could not Logout");
       console.log(error);
     }
   }

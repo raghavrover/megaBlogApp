@@ -1,9 +1,12 @@
 import PostForm from "../Components/PostForm";
+import { Container } from "../Components/Index";
 
 function AddPost() {
   return (
     <>
-      <PostForm />
+      <Container>
+        <PostForm />
+      </Container>
     </>
   );
 }

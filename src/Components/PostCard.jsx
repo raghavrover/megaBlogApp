@@ -17,7 +17,7 @@ function PostCard({ data }) {
           />
           <div className="w-full px-4 pb-4">
             <h1 className="w-full text-xl text-start">{title}</h1>
-            <div className="w-full">{parse(content)}</div>
+            <div className="w-full text-sm">{parse(content)}</div>
           </div>
         </div>
       </Link>

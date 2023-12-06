@@ -11,6 +11,7 @@ import SignUp from "./SignUp";
 import ProtectedRoute from "./ProtectedRoute";
 import PostCard from "./PostCard";
 import PreviewPostCard from "./PreviewPostCard";
+import Container from "./Container";
 
 export {
   Login,
@@ -26,4 +27,5 @@ export {
   ProtectedRoute,
   PostCard,
   PreviewPostCard,
+  Container,
 };

@@ -17,14 +17,15 @@ import AllPosts from "./pages/AllPosts";
 import EditPost from "./pages/EditPost";
 import Post from "./pages/Post";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import NotFound from "./pages/NotFound";
 import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route path="/" element={<App />} errorElement={<NotFound />}>
       {/**Add an error boundary for non-specified routes */}
       <Route
-        path="/"
+        path=""
         element={
           <ProtectedRoute authentication>
             <Home />

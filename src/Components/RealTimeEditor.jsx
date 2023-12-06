@@ -42,6 +42,7 @@ function RealTimeEditor({ name, control, label, defaultValue = "" }) {
                 "media",
                 "table",
                 "help",
+                "code",
                 "wordcount",
                 "anchor",
               ],

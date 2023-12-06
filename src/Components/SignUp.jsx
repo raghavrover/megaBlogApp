@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth";
-import { login as authLogin } from "../store/loginSlice";
+import { login as authLogin } from "../store/authSlice";
 import { Button, Input } from "./Index.js";
 
 function SignUp() {

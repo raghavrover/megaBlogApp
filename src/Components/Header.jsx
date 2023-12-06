@@ -5,7 +5,7 @@ import Button from "./Button";
 import LogoutBtn from "./LogoutBtn";
 
 function Header() {
-  const authStatus = useSelector((state) => state.login.loginStatus);
+  const authStatus = useSelector((state) => state.auth.loginStatus);
 
   const navList = [
     {
@@ -42,8 +42,8 @@ function Header() {
 
   return (
     <>
-      <header className="w-full py-1 shadow bg-gray-500">
-        <nav className="w-[90%] max-w-[1440px] mx-auto flex items-center justify-between">
+      <header className="w-full py-1 h-[90px] flex justify-center items-center shadow-md bg-gray-500">
+        <nav className="w-[90%] max-w-[1440px] flex items-center justify-between">
           <Logo />
           <div>
             <ul className="hidden md:flex items-center justify-between gap-2">
@@ -53,7 +53,9 @@ function Header() {
                   key={navObject.id}
                 >
                   <Button>
-                    <Link to={navObject.route}>{navObject.name}</Link>
+                    <Link to={navObject.route} className="focus:outline-none">
+                      {navObject.name}
+                    </Link>
                   </Button>
                 </li>
               ))}

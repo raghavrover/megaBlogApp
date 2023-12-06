@@ -1,1 +1,16 @@
-// Implement Post's Reducer to know store when posts are downloaded.
+import { createSlice } from "@reduxjs/toolkit";
+
+const postSlice = createSlice({
+  name: "posts",
+  initialState: {
+    postsData: [],
+  },
+  reducers: {
+    storePosts: (state, action) => {
+      state.postsData = action.payload;
+    },
+  },
+});
+
+export const { storePosts } = postSlice.actions;
+export default postSlice.reducer;

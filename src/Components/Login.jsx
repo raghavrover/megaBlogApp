@@ -2,7 +2,7 @@
  * 1. Get Form Data and Validate it(which will be handled by React-Hook-Form)
  * 2. Send the Form data by using `AppWrite Login Service`
  * 2.1. If the request is success, call the getCurrentUser method of AppWrite Service
- * 2.1.1 If it is success update `Store` by using `login action of LoginSlice`
+ * 2.1.1 If it is success update `Store` by using `login action of authSlice`
  * 2.2. If fails Just display the `error message` received through the network by using react state
  */
 
@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth";
-import { login as authLogin } from "../store/loginSlice";
+import { login as authLogin } from "../store/authSlice";
 import Input from "./Input";
 import Button from "./Button";
 

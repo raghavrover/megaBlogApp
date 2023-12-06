@@ -16,7 +16,7 @@ import appWriteService from "../appwrite/config";
 const optionArray = ["active", "in-active"];
 
 function PostForm({ post }) {
-  const userData = useSelector((state) => state.login.user);
+  const userData = useSelector((state) => state.auth.user);
   const navigate = useNavigate();
   const { register, handleSubmit, control, watch, setValue, getValues } =
     useForm({
